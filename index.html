@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Exercises</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 30px;
+        }
+
+        #div {
+            display: grid;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .code {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
+
+        .result {
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div"></div>
+
+    <script>
+
+        let div = document.getElementById("div");
+
+
+        // Exercise 1
+
+        let obj = {
+            name: "Ayesha",
+            rollNo: 12,
+            marks: 85,
+            city: "Lahore",
+        };
+
+        let { name, marks } = obj;
+
+        let card1 = `
+        <div class="card">
+            <h2>Exercise 1: Basic Object Destructuring</h2>
+
+            <div class="code">
+let obj = {
+    name: "Ayesha",
+    rollNo: 12,
+    marks: 85,
+    city: "Lahore"
+};
+
+let { name, marks } = obj;
+            </div>
+
+            <div class="result">
+                name = ${name} & marks = ${marks}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card1;
+
+
+        // Exercise 2
+
+        let product = {
+            id: 5,
+            title: "Wireless Mouse",
+            price: 25.99,
+        };
+
+        let { title: productname } = product;
+
+        let card2 = `
+        <div class="card">
+            <h2>Exercise 2: Destructuring with Renaming</h2>
+
+            <div class="code">
+let product = {
+    id: 5,
+    title: "Wireless Mouse",
+    price: 25.99
+};
+
+let { title: productname } = product;
+            </div>
+
+            <div class="result">
+                title = ${product.title}
+                productname = ${productname}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card2;
+
+
+        // Exercise 3
+
+        let user = {
+            username: "bilal99",
+        };
+
+        let { username, age = 18 } = user;
+
+        let card3 = `
+        <div class="card">
+            <h2>Exercise 3: Destructuring with Default Values</h2>
+
+            <div class="code">
+let user = {
+    username: "bilal99"
+};
+
+let { username, age = 18 } = user;
+            </div>
+
+            <div class="result">
+                username = ${username}
+                age = ${age}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card3;
+
+
+        // Exercise 4
+
+        let colors = ["red", "green", "blue"];
+
+        let [a, b, c] = colors;
+
+        let card4 = `
+        <div class="card">
+            <h2>Exercise 4: Array Destructuring</h2>
+
+            <div class="code">
+let colors = ["red", "green", "blue"];
+
+let [a, b, c] = colors;
+            </div>
+
+            <div class="result">
+                a = ${a}
+                b = ${b}
+                c = ${c}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card4;
+
+
+        // Exercise 5
+
+        let numbers = [10, 20, 30, 40];
+
+        let [first, , third] = numbers;
+
+        let card5 = `
+        <div class="card">
+            <h2>Exercise 5: Skipping Values in Array Destructuring</h2>
+
+            <div class="code">
+let numbers = [10, 20, 30, 40];
+
+let [first, , third] = numbers;
+            </div>
+
+            <div class="result">
+                first = ${first}
+                third = ${third}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card5;
+
+
+        // Exercise 6
+
+        let personalInfo = {
+            name: "Zara",
+            age: 22
+        };
+
+        let jobInfo = {
+            company: "TechCorp",
+            salary: 50000
+        };
+
+        let employee = {
+            ...personalInfo,
+            ...jobInfo
+        };
+
+        let card6 = `
+        <div class="card">
+            <h2>Exercise 6: Merge Two Objects</h2>
+
+            <div class="code">
+let personalInfo = {
+    name: "Zara",
+    age: 22
+};
+
+let jobInfo = {
+    company: "TechCorp",
+    salary: 50000
+};
+
+let employee = {
+    ...personalInfo,
+    ...jobInfo
+};
+            </div>
+
+            <div class="result">
+                employee = ${JSON.stringify(employee)}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card6;
+
+
+        // Exercise 7
+
+        let defaultSettings = {
+            theme: "light",
+            fontSize: 14,
+            notifications: true
+        };
+
+        let usersettings = {
+            ...defaultSettings,
+            theme: "dark"
+        };
+
+        let card7 = `
+        <div class="card">
+            <h2>Exercise 7: Copy and Override</h2>
+
+            <div class="code">
+let defaultSettings = {
+    theme: "light",
+    fontSize: 14,
+    notifications: true
+};
+
+let usersettings = {
+    ...defaultSettings,
+    theme: "dark"
+};
+            </div>
+
+            <div class="result">
+                usersettings = ${JSON.stringify(usersettings)}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card7;
+
+
+        // Exercise 8
+
+        let fruits = ["mango", "banana"];
+        let vegetables = ["potato", "onion"];
+
+        let grocery_list = [
+            ...fruits,
+            ...vegetables
+        ];
+
+        let card8 = `
+        <div class="card">
+            <h2>Exercise 8: Combine Two Arrays</h2>
+
+            <div class="code">
+let fruits = ["mango", "banana"];
+let vegetables = ["potato", "onion"];
+
+let grocery_list = [
+    ...fruits,
+    ...vegetables
+];
+            </div>
+
+            <div class="result">
+                grocery_list = ${grocery_list}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card8;
+
+
+        // Exercise 9
+
+        let cart = ["shirt", "shoes"];
+
+        let updatedcart = [
+            ...cart,
+            "jacket"
+        ];
+
+        let card9 = `
+        <div class="card">
+            <h2>Exercise 9: Add Items While Spreading</h2>
+
+            <div class="code">
+let cart = ["shirt", "shoes"];
+
+let updatedcart = [
+    ...cart,
+    "jacket"
+];
+            </div>
+
+            <div class="result">
+                updatedcart = ${updatedcart}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card9;
+
+
+        // Exercise 10
+
+        let marksObtained = 45;
+
+        let passFail = marksObtained >= 40 ? "Pass" : "Fail";
+
+        let card10 = `
+        <div class="card">
+            <h2>Exercise 10: Pass or Fail</h2>
+
+            <div class="code">
+let marksObtained = 45;
+
+let result = marksObtained >= 40 ? "Pass" : "Fail";
+            </div>
+
+            <div class="result">
+                marksObtained = ${marksObtained}
+                result = ${passFail}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card10;
+
+
+        // Exercise 11
+
+        let num = 7;
+
+        let oddEven = num % 2 === 0 ? "Even" : "Odd";
+
+        let card11 = `
+        <div class="card">
+            <h2>Exercise 11: Odd or Even</h2>
+
+            <div class="code">
+let num = 7;
+
+let result = num % 2 === 0 ? "Even" : "Odd";
+            </div>
+
+            <div class="result">
+                num = ${num}
+                result = ${oddEven}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card11;
+
+
+        // Exercise 18
+
+        let score = 72;
+
+        let grade = score >= 90
+            ? "A"
+            : score >= 75
+            ? "B"
+            : score >= 60
+            ? "C"
+            : "F";
+
+        let card18 = `
+        <div class="card">
+            <h2>Exercise 18: Nested Ternary - Grading System</h2>
+
+            <div class="code">
+let score = 72;
+
+let grade = score >= 90
+    ? "A"
+    : score >= 75
+    ? "B"
+    : score >= 60
+    ? "C"
+    : "F";
+            </div>
+
+            <div class="result">
+                score = ${score}
+                grade = ${grade}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card18;
+
+
+        // Exercise 19
+
+        let isLoggedIn = false;
+
+        let buttonText = isLoggedIn ? "Logout" : "Login";
+
+        let card19 = `
+        <div class="card">
+            <h2>Exercise 19: Login Button Text</h2>
+
+            <div class="code">
+let isLoggedIn = false;
+
+let buttonText = isLoggedIn ? "Logout" : "Login";
+            </div>
+
+            <div class="result">
+                isLoggedIn = ${isLoggedIn}
+                buttonText = ${buttonText}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card19;
+
+
+        // Exercise 20
+
+        let vote_age = 16;
+
+        let check = 18 - vote_age;
+
+        let voteMessage = vote_age >= 18
+            ? "You can vote!"
+            : `Wait ${check} more years to vote`;
+
+            alert(`This is alert massage for Exercise 20 = ${voteMessage}`)
+
+        let card20 = `
+        <div class="card">
+            <h2>Exercise 20: Voting Age</h2>
+
+            <div class="code">
+let vote_age = 16;
+
+let check = 18 - vote_age;
+
+let voteMessage = vote_age >= 18
+    ? "You can vote!"
+    : \`Wait \${check} more years\`;
+            </div>
+
+            <div class="result">
+                age = ${vote_age}
+                result = ${voteMessage}
+            </div>
+        </div>
+        `;
+
+        div.innerHTML += card20;
+
+    </script>
+
+</body>
+
+</html>
